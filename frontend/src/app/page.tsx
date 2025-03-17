@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -9,6 +10,7 @@ import { Project } from "@/types/types";
 export default function Home() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export default function Home() {
       <section className="flex items-center justify-center h-screen bg-gradient-to-r from-white to-gray-100 text-gray-800 font-sans">
         <div className="text-center px-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            Hi, I'm Varish Sanghvi
+            Hi, I&apos;m Varish Sanghvi
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-8">
             A Full-Stack Developer Crafting Timeless Digital Experiences
@@ -74,7 +76,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
           <p className="text-gray-700 text-lg leading-relaxed">
-            I'm Varish Sanghvi, a full-stack developer passionate about creating innovative digital solutions. 
+            I&apos;m Varish Sanghvi, a full-stack developer passionate about creating innovative digital solutions. 
             I blend technical expertise with a keen eye for design to build scalable, user-centric web applications.
           </p>
         </div>

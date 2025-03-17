@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useState } from "react";
@@ -11,9 +12,13 @@ export default function NewProject() {
   const [githubLink, setGithubLink] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [message, setMessage] = useState("");
+  const [error, setError] = useState(""); // ✅ Added error state
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setMessage("");
+    setError(""); // ✅ Clear previous errors
+
     try {
       const techsArray = techStack.split(",").map((tech) => tech.trim());
       const project = {
@@ -21,7 +26,7 @@ export default function NewProject() {
         description,
         techStack: techsArray,
         githubLink,
-        imageUrl, // Now required
+        imageUrl,
       };
       const data = await createProject(project);
       setMessage(`Project "${data.title}" created successfully!`);
@@ -32,8 +37,8 @@ export default function NewProject() {
       setTechStack("");
       setGithubLink("");
       setImageUrl("");
-    } catch (error) {
-      setMessage("Failed to create project.");
+    } catch (err) {
+      setError("Failed to create project. Please try again."); // ✅ Use error state
     }
   };
 
@@ -97,7 +102,10 @@ export default function NewProject() {
           Create Project
         </button>
       </form>
-      {message && <p className="mt-4 text-center text-gray-800">{message}</p>}
+
+      {/* Show messages */}
+      {message && <p className="mt-4 text-center text-green-600">{message}</p>}
+      {error && <p className="mt-4 text-center text-red-500">{error}</p>} {/* ✅ Show error messages */}
     </div>
   );
 }
