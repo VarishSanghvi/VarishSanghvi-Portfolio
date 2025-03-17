@@ -34,7 +34,7 @@ This repository hosts a modern, responsive portfolio website built with **Next.j
 - **Tailwind CSS** – A utility-first CSS framework.
 - **Framer Motion** – An animation library for React.
 - **React Icons** – Icon library for React.
-- **Express & MongoDB** *(if applicable)* – For backend API (CRUD operations).
+- **Express & MongoDB** For backend API (CRUD operations).
 - **Vercel** – For seamless hosting and deployment.
 
 ---
