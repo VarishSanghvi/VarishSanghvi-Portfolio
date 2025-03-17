@@ -27,7 +27,6 @@ export const createProject = async (project: Omit<Project, "_id">) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": process.env.NEXT_PUBLIC_ADMIN_API_KEY || "",
       },
       body: JSON.stringify(project),
     });
