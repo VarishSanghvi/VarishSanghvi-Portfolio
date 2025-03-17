@@ -4,7 +4,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { fetchProjects, deleteProject } from "@/utils/api";
+import { fetchProjects } from "@/utils/api";
+// deleteProject
 import { Project } from "@/types/types";
 
 export default function Home() {
@@ -28,15 +29,15 @@ export default function Home() {
     loadProjects();
   }, []);
 
-  const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this project?")) return;
-    try {
-      await deleteProject(id);
-      setProjects((prev) => prev.filter((proj) => proj._id !== id));
-    } catch (error) {
-      alert("Failed to delete project.");
-    }
-  };
+  // const handleDelete = async (id: string) => {
+  //   if (!confirm("Are you sure you want to delete this project?")) return;
+  //   try {
+  //     await deleteProject(id);
+  //     setProjects((prev) => prev.filter((proj) => proj._id !== id));
+  //   } catch (error) {
+  //     alert("Failed to delete project.");
+  //   }
+  // };
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -93,7 +94,7 @@ export default function Home() {
         variants={sectionVariants}
       >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-10">
+          {/* <div className="flex flex-col md:flex-row justify-between items-center mb-10">
             <h2 className="text-4xl font-bold text-gray-800">Projects</h2>
             <Link
               href="/projects/new"
@@ -101,7 +102,7 @@ export default function Home() {
             >
               + Add Project
             </Link>
-          </div>
+          </div> */}
 
           {loading ? (
             <div className="text-center text-lg font-semibold text-gray-700">
@@ -137,12 +138,12 @@ export default function Home() {
                     >
                       🔗 GitHub Repo
                     </a>
-                    <button
+                    {/* <button
                       onClick={() => handleDelete(project._id)}
                       className="border border-gray-800 text-gray-800 px-3 py-1 rounded hover:bg-gray-800 hover:text-white transition"
                     >
                       Delete
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               ))}

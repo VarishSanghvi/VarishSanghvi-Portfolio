@@ -20,49 +20,48 @@ export async function fetchProjectById(id: string): Promise<Project> {
   return await response.json();
 }
 
-/** 🔹 Create a new project (POST) */
-export const createProject = async (project: Omit<Project, "_id">) => {
-  try {
-    const response = await fetch(`${API_URL}/api/projects`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.NEXT_PUBLIC_ADMIN_API_KEY || "",
-      },
-      body: JSON.stringify(project),
-    });
+// /** 🔹 Create a new project (POST) */
+// export const createProject = async (project: Omit<Project, "_id">) => {
+//   try {
+//     const response = await fetch(`${API_URL}/api/projects`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(project),
+//     });
 
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status} - ${await response.text()}`);
-    }
+//     if (!response.ok) {
+//       throw new Error(`Error: ${response.status} - ${await response.text()}`);
+//     }
 
-    return await response.json();
-  } catch (error) {
-    console.error("Create project failed:", error);
-    throw error;
-  }
-};
+//     return await response.json();
+//   } catch (error) {
+//     console.error("Create project failed:", error);
+//     throw error;
+//   }
+// };
 
-/** 🔹 Update an existing project (PUT) */
-export async function updateProject(id: string, project: Partial<Project>) {
-  const response = await fetch(`${API_URL}/api/projects/${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(project),
-  });
-  if (!response.ok) throw new Error("Failed to update project");
-  return await response.json();
-}
+// /** 🔹 Update an existing project (PUT) */
+// export async function updateProject(id: string, project: Partial<Project>) {
+//   const response = await fetch(`${API_URL}/api/projects/${id}`, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(project),
+//   });
+//   if (!response.ok) throw new Error("Failed to update project");
+//   return await response.json();
+// }
 
-/** 🔹 Delete a project (DELETE) */
-export async function deleteProject(id: string) {
-  const response = await fetch(`${API_URL}/api/projects/${id}`, {
-    method: "DELETE",
-    headers: {
-      "x-api-key": process.env.NEXT_PUBLIC_ADMIN_API_KEY || ""
-    }
-  });
-  if (!response.ok) throw new Error("Failed to delete project");
-}
+// /** 🔹 Delete a project (DELETE) */
+// export async function deleteProject(id: string) {
+//   const response = await fetch(`${API_URL}/api/projects/${id}`, {
+//     method: "DELETE",
+//     headers: {
+//       "x-api-key": process.env.NEXT_PUBLIC_ADMIN_API_KEY || ""
+//     }
+//   });
+//   if (!response.ok) throw new Error("Failed to delete project");
+// }
